@@ -78,6 +78,9 @@ app.use("/api/auth" ,authRoutes )   //Routes
 
 
 app.get("/api/data",(req , res)=>{  res.send({Name:"Kalai" , Age: 21 , skill: "React Devloper"})})  
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'Active', message: 'Server is awake & running!' });
+});
 
 // Server Run 
 httpServer.listen(PORT,()=>{
