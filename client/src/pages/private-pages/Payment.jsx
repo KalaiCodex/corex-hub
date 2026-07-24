@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MsgLayout from '../../layout/MsgLayout';
-import CreateInvoice from '../../components/CreateInvoice';
 
 
 const transactions = [
@@ -12,7 +11,6 @@ const transactions = [
 
 export default function Payments() {
 
-  const [ createInv , setCreateInv ] = useState(false)
   return (
     <div className="flex-1 h-screen overflow-y-auto bg-[#0a0a0a] p-6 md:p-10 text-white">
        <MsgLayout/>
@@ -21,9 +19,7 @@ export default function Payments() {
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-10 mt-10">
         <h1 className="text-3xl font-bold">Payments & Invoices</h1>
-        <button onClick={ ()=>{setCreateInv(true)}} className="bg-green-500 hover:bg-green-400 text-black font-bold py-2.5 px-6 rounded-2xl transition-all flex items-center gap-2">
-          <span>+</span> Create Invoice
-        </button>
+  
       </div>
 
       {/* PAYMENT STATS CARDS */}
@@ -88,10 +84,6 @@ export default function Payments() {
           
         </div>
       </div>
-      { createInv &&  (
-        
-        <CreateInvoice onClose={()=>{setCreateInv(false)}}/>
-      )}
     </div>
   );
 }
